@@ -7,7 +7,6 @@ import android.os.Bundle;
 //Sanjana was here again
 //hi sharanya this is sanjana
 //hi sharanya this is Rose
-//
 public class MainActivity extends AppCompatActivity {
 
     @Override
