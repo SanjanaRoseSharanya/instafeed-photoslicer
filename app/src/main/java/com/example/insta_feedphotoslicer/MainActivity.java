@@ -1,3 +1,4 @@
+
 package com.example.insta_feedphotoslicer;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 //Sanjana was here again
 //hi sharanya this is sanjana
 //hi sharanya this is Rose
+//HOPE U SEE THIS
 public class MainActivity extends AppCompatActivity {
 
     @Override
