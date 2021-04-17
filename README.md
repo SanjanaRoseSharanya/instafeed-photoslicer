@@ -6,19 +6,22 @@ This eliminates the need to tediously attempt to crop it with precision.
 We can split it into sub goals with milestones
 
 MILESTONE 1
-Take an image from the user through file manager
 Crop any given image into a square
 
 MILESTONE 2
+Take an image from the user through file manager
+Then try to get it through gallery
+
+MILESTONE 3
 Slice any given image into 2 parts down the middle 
 make both the subimages available to downlead
 
-MILESTONE 3
+MILESTONE 4
 Use coordinates to split image into 9
 Make each image downloadable
 
-MILESTONE 4
+MILESTONE 5
 Make it pretty lol
 
-MILESTONE 5
+MILESTONE 6
 Add a feature to input the number and split into that many parts (2,4,8,9)
