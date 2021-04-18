@@ -124,7 +124,6 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
 
     }
 
-
     public void storeImage(Bitmap bitmap, String filename) {
         String path = Environment.getExternalStorageDirectory().toString() + "/" + filename;
         OutputStream out = null;
