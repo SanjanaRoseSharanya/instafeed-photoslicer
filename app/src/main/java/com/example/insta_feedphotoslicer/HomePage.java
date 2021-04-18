@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -11,14 +12,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
+//import javax.imageio.ImageIO;
 import java.io.*;
-
-public class HomePage extends AppCompatActivity implements View.OnClickListener {
+public class HomePage<BufferedImage> extends AppCompatActivity implements View.OnClickListener {
 
     Button gal, makeGrid;
     ImageView image;
     private static int RESULT_IMAGE = 1;
+    //private OutputStream ImageIO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,9 +89,18 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         pos=0;
         for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
         {
-            File file = new File("Post" + (postorder) + ".jpeg");
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            tiles[pos].compress(Bitmap.CompressFormat.JPEG, 90, out);
+            //File file = new File("Post" + (postorder) + ".jpeg");
+            //ByteArrayOutputStream out = new ByteArrayOutputStream();
+            //tiles[pos].compress(Bitmap.CompressFormat.JPEG, 90, out);
+            //Drawable d = Drawable.createFromStream(new ByteArrayInputStream(out[pos]), null);
+
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            tiles[pos].compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            ByteArrayInputStream bis = new ByteArrayInputStream(byteArray);
+            
+            }
+
         }
 
     }
