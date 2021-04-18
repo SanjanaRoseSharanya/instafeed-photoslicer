@@ -3,11 +3,11 @@ package com.example.insta_feedphotoslicer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
+//import android.graphics.Bitmap;
+//import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
+//import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,9 +18,9 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
 
     Button gal, makeGrid;
     ImageView image;
-    ImageView sample;
+   // ImageView sample;
     private static int RESULT_IMAGE = 1;
-    private ByteArrayInputStream ImageIO;
+    //private ByteArrayInputStream ImageIO;
     //private OutputStream ImageIO;
 
     @Override
