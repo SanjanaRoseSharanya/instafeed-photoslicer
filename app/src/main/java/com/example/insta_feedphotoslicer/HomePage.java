@@ -3,12 +3,12 @@ package com.example.insta_feedphotoslicer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-//import android.graphics.Bitmap;
 //import android.graphics.drawable.Drawable;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 //import android.os.Parcelable;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,10 +19,12 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
 
     Button gal, makeGrid;
     ImageView image;
+    //Bitmap tiles[];
    // ImageView sample;
     private static int RESULT_IMAGE = 1;
     //private ByteArrayInputStream ImageIO;
     //private OutputStream ImageIO;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +89,16 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
                 Log.d("tag", String.valueOf(pos));
                 //sample.setImageBitmap(tiles[pos]);
                 pos = pos+1;
+
             }
         }
+        for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
+        {
+            File slice = new File("Post" + (postorder) + ".png");
+            storeImage(tiles[pos],"(\"Post\" + (postorder) + \".png\")");
+            pos++;
+        }
+
         //try {
             //pos = 0;
             //for (int postorder = total_tiles; (postorder > 0) && (pos < total_tiles); postorder--) {
@@ -113,4 +123,34 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
         //catch (Exception e){}
 
     }
+
+
+    public void storeImage(Bitmap bitmap, String filename) {
+        String path = Environment.getExternalStorageDirectory().toString() + "/" + filename;
+        OutputStream out = null;
+        File imageFile = new File(path);
+
+        try {
+            out = new FileOutputStream(imageFile);
+            // choose JPEG format
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+        } catch (FileNotFoundException e) {
+            // manage exception ...
+        } catch (IOException e) {
+            // manage exception ...
+        } finally {
+
+            try {
+                if (out != null) {
+                    out.close();
+                }
+
+            } catch (Exception exc) {
+            }
+
+        }
+    }
+
+
 }
