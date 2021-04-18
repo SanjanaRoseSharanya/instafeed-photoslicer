@@ -107,8 +107,8 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
                 //BufferedImage buffimage = ImageIO.read(bis);
                 //ImageIO.write(buffimage, "jpg", new File("output.jpg") );
 
-            }
-        }
+           // }
+       // }
         //catch (Exception e){}
 
     }
