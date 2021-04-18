@@ -83,16 +83,14 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                 pos = pos+1;
             }
         }
+
         pos=0;
+        for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
+        {
+            File file = new File("Post" + (postorder) + ".jpeg");
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            tiles[pos].compress(Bitmap.CompressFormat.JPEG, 90, out);
+        }
 
-
-        //if(image.getType()==6) //storing images  as png if given as png
-        //{
-            //for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
-            //{
-                //ImageIO.write(tiles[pos], "png", new File("Post" + (postorder) + ".png"));
-                //pos++;
-            //}
-        //}
     }
 }
