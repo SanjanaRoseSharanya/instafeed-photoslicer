@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 //import android.graphics.Bitmap;
 //import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 //import android.os.Parcelable;
@@ -66,7 +67,7 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
                 Log.d("tag", "image copied");
             }
         }
-/*
+
         image.buildDrawingCache();
         Bitmap original_image = image.getDrawingCache();
 
@@ -84,10 +85,10 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
             {
                 tiles[pos] = Bitmap.createBitmap(original_image,tile_row*(original_image.getWidth()/3),tile_col*original_image.getWidth()/3, original_image.getWidth()/3, original_image.getWidth()/3);// array of buffered image is initiallized
                 Log.d("tag", String.valueOf(pos));
-                sample.setImageBitmap(tiles[pos]);
+                //sample.setImageBitmap(tiles[pos]);
                 pos = pos+1;
             }
-        } */
+        }
         //try {
             //pos = 0;
             //for (int postorder = total_tiles; (postorder > 0) && (pos < total_tiles); postorder--) {
