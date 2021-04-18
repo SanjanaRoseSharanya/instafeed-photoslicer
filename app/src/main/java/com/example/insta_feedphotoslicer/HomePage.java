@@ -66,7 +66,7 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
                 Log.d("tag", "image copied");
             }
         }
-
+/*
         image.buildDrawingCache();
         Bitmap original_image = image.getDrawingCache();
 
@@ -87,7 +87,7 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
                 sample.setImageBitmap(tiles[pos]);
                 pos = pos+1;
             }
-        }
+        } */
         //try {
             //pos = 0;
             //for (int postorder = total_tiles; (postorder > 0) && (pos < total_tiles); postorder--) {
