@@ -18,7 +18,9 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
 
     Button gal, makeGrid;
     ImageView image;
+    ImageView sample;
     private static int RESULT_IMAGE = 1;
+    private ByteArrayInputStream ImageIO;
     //private OutputStream ImageIO;
 
     @Override
@@ -34,7 +36,7 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)  {
         if(v.getId() == R.id.gallary)
         {
             Log.d("tag", "in gallary intent");
@@ -82,26 +84,32 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
             {
                 tiles[pos] = Bitmap.createBitmap(original_image,tile_row*(original_image.getWidth()/3),tile_col*original_image.getWidth()/3, original_image.getWidth()/3, original_image.getWidth()/3);// array of buffered image is initiallized
                 Log.d("tag", String.valueOf(pos));
+                sample.setImageBitmap(tiles[pos]);
                 pos = pos+1;
             }
         }
+        //try {
+            //pos = 0;
+            //for (int postorder = total_tiles; (postorder > 0) && (pos < total_tiles); postorder--) {
+                //File file = new File("Post" + (postorder) + ".jpeg");
+                //ByteArrayOutputStream out = new ByteArrayOutputStream();
+                //tiles[pos].compress(Bitmap.CompressFormat.JPEG, 90, out);
+                //Drawable d = Drawable.createFromStream(new ByteArrayInputStream(out[pos]), null);
 
-        pos=0;
-        for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
-        {
-            //File file = new File("Post" + (postorder) + ".jpeg");
-            //ByteArrayOutputStream out = new ByteArrayOutputStream();
-            //tiles[pos].compress(Bitmap.CompressFormat.JPEG, 90, out);
-            //Drawable d = Drawable.createFromStream(new ByteArrayInputStream(out[pos]), null);
+                /*ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                tiles[pos].compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                ByteArrayInputStream bis = new ByteArrayInputStream(byteArray);
+                InputStream is;*/
 
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            tiles[pos].compress(Bitmap.CompressFormat.PNG, 100, stream);
-            byte[] byteArray = stream.toByteArray();
-            ByteArrayInputStream bis = new ByteArrayInputStream(byteArray);
-            
+                //int buff = ImageIO.read(byteArray);
+                //ImageIO.write(bis , "jpg", new File("final_file.jpg") );
+                //BufferedImage buffimage = ImageIO.read(bis);
+                //ImageIO.write(buffimage, "jpg", new File("output.jpg") );
+
             }
-
         }
+        //catch (Exception e){}
 
     }
 }
