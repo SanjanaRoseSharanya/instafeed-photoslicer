@@ -78,11 +78,13 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
 
             for (int tile_row = 0; tile_row < grid_side; tile_row++)
             {
-                tiles[pos] = Bitmap.createBitmap(original_image,tile_col*(original_image.getWidth()/3),tile_row*original_image.getWidth()/3, original_image.getWidth(), original_image.getWidth());// array of buffered image is initiallized
+                tiles[pos] = Bitmap.createBitmap(original_image,tile_row*(original_image.getWidth()/3),tile_col*original_image.getWidth()/3, original_image.getWidth()/3, original_image.getWidth()/3);// array of buffered image is initiallized
+                Log.d("tag", String.valueOf(pos));
                 pos = pos+1;
             }
         }
         pos=0;
+
         //if(image.getType()==6) //storing images  as png if given as png
         //{
             //for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
