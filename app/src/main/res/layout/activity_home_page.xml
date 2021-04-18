@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/view"
         android:layout_gravity="center"
-        android:text="make grid"
+        android:text="Download grid"
         android:textSize="30sp"/>
 
 
