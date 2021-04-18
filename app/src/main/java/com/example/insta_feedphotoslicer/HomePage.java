@@ -3,6 +3,7 @@ package com.example.insta_feedphotoslicer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import java.io.*;
 
 public class HomePage extends AppCompatActivity implements View.OnClickListener {
 
@@ -59,5 +62,34 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                 Log.d("tag", "image copied");
             }
         }
+
+        image.buildDrawingCache();
+        Bitmap original_image = image.getDrawingCache();
+
+        int grid_side = 3; //as it is a 3x3 grid
+        int total_tiles = grid_side*grid_side; //total num of tiles
+        int tile_length = image.getWidth() / grid_side; //stores pixel length of a single tile
+
+        Bitmap tiles[] = new Bitmap[total_tiles]; //array of buffered image
+
+        int pos = 0;
+        for (int tile_col = 0; tile_col < grid_side; tile_col++)
+        {
+
+            for (int tile_row = 0; tile_row < grid_side; tile_row++)
+            {
+                tiles[pos] = Bitmap.createBitmap(original_image,tile_col*(original_image.getWidth()/3),tile_row*original_image.getWidth()/3, original_image.getWidth(), original_image.getWidth());// array of buffered image is initiallized
+                pos = pos+1;
+            }
+        }
+        pos=0;
+        //if(image.getType()==6) //storing images  as png if given as png
+        //{
+            //for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
+            //{
+                //ImageIO.write(tiles[pos], "png", new File("Post" + (postorder) + ".png"));
+                //pos++;
+            //}
+        //}
     }
 }
