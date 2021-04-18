@@ -94,8 +94,8 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
         }
         for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
         {
-            File slice = new File("Post" + (postorder) + ".png");
-            storeImage(tiles[pos],"(\"Post\" + (postorder) + \".png\")");
+            //File slice = new File("Post" + (postorder) + ".png");
+            storeImage(tiles[pos],("post"+postorder));
             pos++;
         }
 
