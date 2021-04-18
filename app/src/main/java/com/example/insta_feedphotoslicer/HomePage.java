@@ -85,6 +85,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         }
         pos=0;
 
+
         //if(image.getType()==6) //storing images  as png if given as png
         //{
             //for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
