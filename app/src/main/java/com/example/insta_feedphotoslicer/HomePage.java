@@ -56,6 +56,7 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
         }
     }
 
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_IMAGE && resultCode == RESULT_OK && null != data) {
