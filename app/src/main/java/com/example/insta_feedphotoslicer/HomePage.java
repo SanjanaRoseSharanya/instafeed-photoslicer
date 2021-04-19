@@ -18,7 +18,7 @@ import java.io.*;
 public class HomePage<BufferedImage> extends AppCompatActivity implements View.OnClickListener {
 
     Button gal, makeGrid;
-    ImageView image;
+    static ImageView image;
     //Bitmap tiles[];
    // ImageView sample;
     private static int RESULT_IMAGE = 1;
@@ -69,7 +69,10 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
                 Log.d("tag", "image copied");
             }
         }
+    }
 
+    public static Bitmap[] SplitImage()
+    {
         image.buildDrawingCache();
         Bitmap original_image = image.getDrawingCache();
 
@@ -92,12 +95,18 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
 
             }
         }
-        for (int postorder = total_tiles; (postorder > 0)&&(pos<total_tiles); postorder--)
-        {
-            //File slice = new File("Post" + (postorder) + ".png");
-            storeImage(tiles[pos],("post"+postorder));
-            pos++;
-        }
+
+        return (tiles);
+
+//        pos=0;
+//        for (int postorder = total_tiles; (postorder > 0); postorder--)
+//        {
+//            //File slice = new File("Post" + (postorder) + ".png");
+//            //Log.d("tag","in for loop");
+//            storeImage(tiles[pos],("post"+postorder));
+//            //Log.d("tag","in for loop 2");
+//            pos++;
+//        }
 
         //try {
             //pos = 0;
@@ -130,13 +139,17 @@ public class HomePage<BufferedImage> extends AppCompatActivity implements View.O
         File imageFile = new File(path);
 
         try {
+            Log.d("tag","in storeImage try");
             out = new FileOutputStream(imageFile);
             // choose JPEG format
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
             out.flush();
         } catch (FileNotFoundException e) {
+            Log.d("tag","in storeImage catch1");
+
             // manage exception ...
         } catch (IOException e) {
+            Log.d("tag","in storeImage2");
             // manage exception ...
         } finally {
 
